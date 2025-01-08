@@ -8,6 +8,21 @@
     <title>Lukas DIZY TP3 (Alt) - S3.01</title>
 </head>
 <body class="bg-dark">
+    <form>
+        <!--Champ Nom-->
+        <div class="mb-3">
+            <label for="champNom" class="form-label">Nom :</label>
+            <input type="text" class="form-control" id="champNom">
+        </div>
+        <!--...-->
+        <!--Champ CV-->
+        <div class="mb-3">
+            <label for="champCV" class="form-label">CV :</label>
+            <input type="file" class="form-control" id="champCV" aria-describedby="aideChampCV">
+            <div id="aideChampCV" class="form-text">Formats acceptés : PDF, DOCX. Taille maximale : 5 Mo.</div>
+        </div>
+    </form>
+
     <footer class="bg-black text-center text-lg-start fixed-bottom">
         <div class="text-white-50 text-center p-3" data-bs-theme="dark">
             Lukas DIZY TP3 (Alt), Validation des compétences C1-C2
