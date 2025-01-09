@@ -16,4 +16,11 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     let estValide = true; // On suppose que les données sont valides
 
     // Validation du nom
+    const regexNomPrenom = /[A-Za-z]+-\s+/i
+    if (nom.length < 2 || nom.length > 50 || !regexNomPrenom.test(nom)) {
+        afficherErreur("erreurNom", "Le nom ne doit contenir que des lettres, des espaces et des tirets. 2 à 50 caractères maximum.");
+        estValide = false;
+    }
+
+    // Validation du prénom
 })
