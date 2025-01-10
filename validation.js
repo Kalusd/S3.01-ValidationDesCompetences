@@ -36,5 +36,12 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
         estValide = false;
     }
 
-    //
+    // Validation du poste souhaité
+    if (posteSouhaite == "Choisissez une option...") {
+        afficherErreur("erreurPoste", "Veuillez choisir une option.");
+        estValide = false;
+    }
+
+    // Validation du numéro de candidat
+    // ...
 })
