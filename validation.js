@@ -68,4 +68,22 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
         afficherErreur("erreurCV", "Le fichier est trop lourd, la taille maximale est de 5 Mo");
         estValide = false;
     }
+
+    // Message de succès
+    if (estValide) {
+        alert("Formulaire envoye !");
+    }
 })
+
+function supprimerErreurs() {
+    document.querySelectorAll(".text-danger").forEach(erreur => {
+        erreur.style.display = "none";
+        erreur.innerText = "";
+    });
+}
+
+function afficherErreur(idSection, message) {
+    const sectionTexteErreur = document.getElementById(idSection);
+    sectionTexteErreur.innerText = message;
+    sectionTexteErreur.style.display = "block";
+}
