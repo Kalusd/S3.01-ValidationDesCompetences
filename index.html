@@ -7,20 +7,23 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <title>Lukas DIZY TP3 (Alt) - S3.01</title>
 </head>
-<body class="bg-dark">
+<body class="bg-dark text-white">
     <form id="formulaireCandidat">
-        <!--Champ Nom-->
-        <div class="mb-3">
-            <label for="champNom" class="form-label">Nom :</label>
-            <input type="text" class="form-control" id="champNom" placeholder="Entrez votre nom..." required>
-            <span class="text-danger" id="erreurNom"></span>
+        <div class="row">
+            <!--Champ Nom-->
+            <div class="col mb-3">
+                <label for="champNom" class="form-label">Nom :</label>
+                <input type="text" class="form-control" id="champNom" placeholder="Entrez votre nom..." required>
+                <span class="text-danger" id="erreurNom"></span>
+            </div>
+            <!--Champ prénom-->
+            <div class="col mb-3">
+                <label for="champPrenom" class="form-label">Prénom :</label>
+                <input type="text" class="form-control" id="champPrenom" placeholder="Entrez votre prénom..." required>
+                <span class="text-danger" id="erreurPrenom"></span>
+            </div>
         </div>
-        <!--Champ prénom-->
-        <div class="mb-3">
-            <label for="champPrenom" class="form-label">Prénom :</label>
-            <input type="text" class="form-control" id="champPrenom" placeholder="Entrez votre prénom..." required>
-            <span class="text-danger" id="erreurPrenom"></span>
-        </div>
+        
         <!--Champ email-->
         <div class="mb-3">
             <label for="champEmail" class="form-label">Adresse Mail :</label>
