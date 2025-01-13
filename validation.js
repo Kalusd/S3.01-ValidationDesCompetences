@@ -7,17 +7,17 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     const nom = document.getElementById("champNom").value.trim(); // trim() supprime les espaces avant et après la valeur
     const prenom = document.getElementById("champPrenom").value.trim();
     const email = document.getElementById("champEmail").value.trim();
-    const posteSouhaite = document.getElementsById("champPoste").value.trim();
+    const posteSouhaite = document.getElementById("champPoste").value.trim();
     const numeroCandidat = document.getElementById("champNumeroCand").value.trim();
     const nombreProjets = document.getElementById("champProjets").value.trim();
     const lienLinkedin = document.getElementById("champLienLinkedin").value.trim();
-    const CV = document.getElementById("champCV").value.trim();
+    const CV = document.getElementById("champCV");
 
     let estValide = true; // On suppose que les données sont valides
 
     // VALIDATIONS
     // Validation du nom
-    const regexNomPrenom = /[A-Za-z]+-\s+/
+    const regexNomPrenom = /^[A-Za-z\s-]+$/
     if (nom.length < 2 || nom.length > 50 || !regexNomPrenom.test(nom)) {
         afficherErreur("erreurNom", "Le nom ne doit contenir que des lettres, des espaces et des tirets. 2 à 50 caractères maximum.");
         estValide = false;
@@ -43,7 +43,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     }
 
     // Validation du numéro de candidat
-    const regexNumCand = /CAND-[0-9]{6}[A-Z]/;
+    const regexNumCand = /^CAND-[0-9]{6}[A-Z]$/;
     if (!regexNumCand.test(numeroCandidat)) {
         afficherErreur("erreurNumeroCand", "Veuillez entrer un numéro de candidat correct.");
         estValide = false;
@@ -56,22 +56,24 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     }
 
     // Validation du lien LinkedIn
-    const regexLinkedIn = /(https:\/\/)?www\.linkedin\.com\/in\/[A-Za-z0-9\-\_\.]+[\/]?/;
+    const regexLinkedIn = /^(https:\/\/)?www\.linkedin\.com\/in\/[A-Za-z0-9\-\_\.]+[\/]?$/;
     if (!regexLinkedIn.test(lienLinkedin)) {
         afficherErreur("erreurLienLinkedin", "Le lien vers le profil LinkedIn est invalide.");
         estValide = false;
     }
 
     // Validation du CV
-    const tailleCV = CV.size() / 1024 / 1024; // Taille Mo
-    if (tailleCV > 5) {
-        afficherErreur("erreurCV", "Le fichier est trop lourd, la taille maximale est de 5 Mo");
-        estValide = false;
+    if (CV.files) { // S'il y a des fichiers
+        const tailleCV = CV.files[0].size / 1024 / 1024; // Taille Mo
+        if (tailleCV > 5) {
+            afficherErreur("erreurCV", "Le fichier est trop lourd, la taille maximale est de 5 Mo");
+            estValide = false;
+        }
     }
-
+    
     // Message de succès
     if (estValide) {
-        alert("Formulaire envoye !");
+        alert("Formulaire envoyé !");
     }
 })
 
