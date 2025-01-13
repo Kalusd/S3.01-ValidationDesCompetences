@@ -60,11 +60,13 @@
             </div>
         </div>
         <!-- Champ CV -->
-        <div class="mb-3">
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="champCV">CV</label>
             <input type="file" class="form-control" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required>
-            <div id="aideChampCV" class="form-text">Formats acceptés : PDF, DOCX. Taille maximale : 5 Mo.</div>
-            <span class="text-danger" id="erreurCV"></span>
         </div>
+        <div id="aideChampCV" class="form-text text-white">Formats acceptés : PDF, DOCX. Taille maximale : 5 Mo.</div> <!-- A remplacer par le survol du champ -->
+        <span class="text-danger" id="erreurCV"></span>
+        <!-- Bouton validation -->
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
 
