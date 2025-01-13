@@ -17,7 +17,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
 
     // VALIDATIONS
     // Validation du nom
-    const regexNomPrenom = /[A-Za-z]+-\s+/i
+    const regexNomPrenom = /[A-Za-z]+-\s+/
     if (nom.length < 2 || nom.length > 50 || !regexNomPrenom.test(nom)) {
         afficherErreur("erreurNom", "Le nom ne doit contenir que des lettres, des espaces et des tirets. 2 à 50 caractères maximum.");
         estValide = false;
@@ -43,7 +43,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     }
 
     // Validation du numéro de candidat
-    const regexNumCand = /CAND-[0-9]{6}+[A-Z]/;
+    const regexNumCand = /CAND-[0-9]{6}[A-Z]/;
     if (!regexNumCand.test(numeroCandidat)) {
         afficherErreur("erreurNumeroCand", "Veuillez entrer un numéro de candidat correct.");
         estValide = false;
