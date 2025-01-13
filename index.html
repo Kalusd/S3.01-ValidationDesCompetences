@@ -12,29 +12,25 @@
         <div class="row">
             <!--Champ Nom-->
             <div class="col mb-3">
-                <label for="champNom" class="form-label">Nom :</label>
-                <input type="text" class="form-control" id="champNom" placeholder="Entrez votre nom..." required>
+                <input type="text" class="form-control" id="champNom" placeholder="Nom" required>
                 <span class="text-danger" id="erreurNom"></span>
             </div>
             <!--Champ prénom-->
             <div class="col mb-3">
-                <label for="champPrenom" class="form-label">Prénom :</label>
-                <input type="text" class="form-control" id="champPrenom" placeholder="Entrez votre prénom..." required>
+                <input type="text" class="form-control" id="champPrenom" placeholder="Prénom" required>
                 <span class="text-danger" id="erreurPrenom"></span>
             </div>
         </div>
         
         <!--Champ email-->
         <div class="mb-3">
-            <label for="champEmail" class="form-label">Adresse Mail :</label>
-            <input type="text" class="form-control" id="champEmail" placeholder="Entrez votre adresse mail..." required>
+            <input type="text" class="form-control" id="champEmail" placeholder="Adresse mail" required>
             <span class="text-danger" id="erreurEmail"></span>
         </div>
         <!--Champ poste souhaite-->
         <div class="mb-3">
-            <label for="champPoste" class="form-label">Poste souhaité :</label>
             <select class="form-select" id="champPoste">
-                <option selected>Choisissez une option...</option>
+                <option selected>Poste souhaité</option>
                 <option>Développeur Web</option>
                 <option>Designer</option>
                 <option>Chef de projet</option>
@@ -43,26 +39,22 @@
         </div>
         <!--Champ numéro candidat-->
         <div class="mb-3">
-            <label for="champNumeroCand" class="form-label">Numéro de candidat interne :</label>
-            <input type="text" class="form-control" id="champNumeroCand" placeholder="Entrez votre numéro de candidat..." required>
+            <input type="text" class="form-control" id="champNumeroCand" placeholder="Numéro de candidat" required>
             <span class="text-danger" id="erreurNumeroCand"></span>
         </div>
         <!--Champ nombre de projets-->
         <div class="mb-3">
-            <label for="champProjets" class="form-label">Nombre de projets réalisés :</label>
-            <input type="number" class="form-control" id="champProjets" min="0" max="40" placeholder="Entrez le nombre de projets réalisés..." required>
+            <input type="number" class="form-control" id="champProjets" min="0" max="40" placeholder="Nombre de projets réalisés" required>
             <span class="text-danger" id="erreurNombreProjets"></span>
         </div>
         <!--Champ lien linkedin-->
         <div class="mb-3">
-            <label for="champLienLinkedin" class="form-label">Lien Linkedin :</label>
-            <input type="text" class="form-control" id="champLienLinkedin" placeholder="Entrez le lien de votre profil LinkedIn..." required>
+            <input type="text" class="form-control" id="champLienLinkedin" placeholder="Lien du profil LinkedIn" required>
             <span class="text-danger" id="erreurLienLinkedin"></span>
         </div>
         <!--Champ CV-->
         <div class="mb-3">
-            <label for="champCV" class="form-label">CV :</label>
-            <input type="file" class="form-control" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+            <input type="file" class="form-control" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required>
             <div id="aideChampCV" class="form-text">Formats acceptés : PDF, DOCX. Taille maximale : 5 Mo.</div>
             <span class="text-danger" id="erreurCV"></span>
         </div>
