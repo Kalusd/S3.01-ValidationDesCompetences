@@ -11,7 +11,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     const numeroCandidat = document.getElementById("champNumeroCand").value.trim();
     const nombreProjets = document.getElementById("champProjets").value.trim();
     const lienLinkedin = document.getElementById("champLienLinkedin").value.trim();
-    // const CV = document.getElementById("champCV").value.trim();
+    const CV = document.getElementById("champCV").value.trim();
 
     let estValide = true; // On suppose que les données sont valides
 
@@ -43,5 +43,29 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     }
 
     // Validation du numéro de candidat
-    // ...
+    const regexNumCand = /CAND-[0-9]{6}+[A-Z]/;
+    if (!regexNumCand.test(numeroCandidat)) {
+        afficherErreur("erreurNumeroCand", "Veuillez entrer un numéro de candidat correct.");
+        estValide = false;
+    }
+
+    // Validation du nombre de projets
+    if (nombreProjets.length < 0 || nombreProjets.length > 40) {
+        afficherErreur("erreurNombreProjets", "Le nombre de projets doit être compris entre 0 et 40");
+        estValide = false;
+    }
+
+    // Validation du lien LinkedIn
+    const regexLinkedIn = /(https:\/\/)?www\.linkedin\.com\/in\/[A-Za-z0-9\-\_\.]+[\/]?/;
+    if (!regexLinkedIn.test(lienLinkedin)) {
+        afficherErreur("erreurLienLinkedin", "Le lien vers le profil LinkedIn est invalide.");
+        estValide = false;
+    }
+
+    // Validation du CV
+    const tailleCV = CV.size() / 1024 / 1024; // Taille Mo
+    if (tailleCV > 5) {
+        afficherErreur("erreurCV", "Le fichier est trop lourd, la taille maximale est de 5 Mo");
+        estValide = false;
+    }
 })
