@@ -9,31 +9,33 @@
 </head>
 <body class="bg-dark text-white">
     <form id="formulaireCandidat" class="m-3">
+        <!-- Groupe nom/prénom -->
         <div class="row">
-            <!--Champ Nom-->
+            <!-- Champ Nom -->
             <div class="col mb-3">
                 <input type="text" class="form-control" id="champNom" placeholder="Nom" required>
                 <span class="text-danger" id="erreurNom"></span>
             </div>
-            <!--Champ prénom-->
+            <!-- Champ prénom -->
             <div class="col mb-3">
                 <input type="text" class="form-control" id="champPrenom" placeholder="Prénom" required>
                 <span class="text-danger" id="erreurPrenom"></span>
             </div>
         </div>
+        <!-- Groupe email/lien linkedin -->
         <div class="row">
-            <!--Champ email-->
+            <!-- Champ email -->
             <div class="col mb-3">
                 <input type="text" class="form-control" id="champEmail" placeholder="Adresse mail" required>
                 <span class="text-danger" id="erreurEmail"></span>
             </div>
-            <!--Champ lien linkedin-->
+            <!-- Champ lien linkedin -->
             <div class="col mb-3">
                 <input type="text" class="form-control" id="champLienLinkedin" placeholder="Lien du profil LinkedIn" required>
                 <span class="text-danger" id="erreurLienLinkedin"></span>
             </div>
         </div>
-        <!--Champ poste souhaite-->
+        <!--Champ poste souhaité -->
         <div class="input-group mb-3">
             <label class="input-group-text" for="champPoste">Poste souhaité</label>
             <select class="form-select" id="champPoste">
@@ -42,21 +44,22 @@
                 <option>Designer</option>
                 <option>Chef de projet</option>
             </select>
-            <span class="text-danger" id="erreurPoste"></span>
         </div>
+        <span class="text-danger" id="erreurPoste"></span>
+        <!-- Groupe numero candidat/nombre de projets -->
         <div class="row">
-            <!--Champ numéro candidat-->
+            <!-- Champ numéro candidat -->
             <div class="col mb-3">
                 <input type="text" class="form-control" id="champNumeroCand" placeholder="Numéro de candidat" required>
                 <span class="text-danger" id="erreurNumeroCand"></span>
             </div>
-            <!--Champ nombre de projets-->
+            <!-- Champ nombre de projets -->
             <div class="col mb-3">
                 <input type="number" class="form-control" id="champProjets" min="0" max="40" placeholder="Nombre de projets réalisés" required>
                 <span class="text-danger" id="erreurNombreProjets"></span>
             </div>
         </div>
-        <!--Champ CV-->
+        <!-- Champ CV -->
         <div class="mb-3">
             <input type="file" class="form-control" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required>
             <div id="aideChampCV" class="form-text">Formats acceptés : PDF, DOCX. Taille maximale : 5 Mo.</div>
