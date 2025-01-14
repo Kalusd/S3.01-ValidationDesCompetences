@@ -13,12 +13,12 @@
         <div class="row">
             <!-- Champ Nom -->
             <div class="col mb-3">
-                <input type="text" class="form-control" id="champNom" placeholder="Nom" required>
+                <input type="text" class="form-control" name="champNom" id="champNom" placeholder="Nom" required>
                 <span class="text-danger" id="erreurNom"></span>
             </div>
             <!-- Champ prénom -->
             <div class="col mb-3">
-                <input type="text" class="form-control" id="champPrenom" placeholder="Prénom" required>
+                <input type="text" class="form-control" name="champPrenom" id="champPrenom" placeholder="Prénom" required>
                 <span class="text-danger" id="erreurPrenom"></span>
             </div>
         </div>
@@ -26,19 +26,19 @@
         <div class="row">
             <!-- Champ email -->
             <div class="col mb-3">
-                <input type="text" class="form-control" id="champEmail" placeholder="Adresse mail" required>
+                <input type="text" class="form-control" name="champEmail" id="champEmail" placeholder="Adresse mail" required>
                 <span class="text-danger" id="erreurEmail"></span>
             </div>
             <!-- Champ lien linkedin -->
             <div class="col mb-3">
-                <input type="text" class="form-control" id="champLienLinkedin" placeholder="Lien du profil LinkedIn" required>
+                <input type="text" class="form-control" name="champLienLinkedin" id="champLienLinkedin" placeholder="Lien du profil LinkedIn" required>
                 <span class="text-danger" id="erreurLienLinkedin"></span>
             </div>
         </div>
         <!--Champ poste souhaité -->
         <div class="input-group mb-3">
             <label class="input-group-text" for="champPoste">Poste souhaité</label>
-            <select class="form-select" id="champPoste">
+            <select class="form-select" name="champPoste" id="champPoste">
                 <option selected>Choisissez une option...</option>
                 <option>Développeur Web</option>
                 <option>Designer</option>
@@ -50,19 +50,19 @@
         <div class="row">
             <!-- Champ numéro candidat -->
             <div class="col mb-3">
-                <input type="text" class="form-control" id="champNumeroCand" placeholder="Numéro de candidat" required>
+                <input type="text" class="form-control" name="champNumeroCand" id="champNumeroCand" placeholder="Numéro de candidat" required>
                 <span class="text-danger" id="erreurNumeroCand"></span>
             </div>
             <!-- Champ nombre de projets -->
             <div class="col mb-3">
-                <input type="number" class="form-control" id="champProjets" min="0" max="40" placeholder="Nombre de projets réalisés" required>
+                <input type="number" class="form-control" name="champProjets" id="champProjets" min="0" max="40" placeholder="Nombre de projets réalisés" required>
                 <span class="text-danger" id="erreurNombreProjets"></span>
             </div>
         </div>
         <!-- Champ CV -->
         <div class="input-group mb-3">
             <label class="input-group-text" for="champCV">CV</label>
-            <input type="file" class="form-control" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required>
+            <input type="file" class="form-control" name="champCV" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required>
         </div>
         <div id="aideChampCV" class="form-text text-white">Formats acceptés : PDF, DOCX. Taille maximale : 5 Mo.</div> <!-- A remplacer par le survol du champ -->
         <span class="text-danger" id="erreurCV"></span>
