@@ -71,9 +71,25 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
         }
     }
     
-    // Message de succès
+    // Redirection vers la validation côté serveur
     if (estValide) {
-        alert("Formulaire envoyé !");
+        // Récupération des données du formulaire (this = formulaire)
+        const donneesFormulaire = new FormData(this);
+
+        // Requête HTTP avec fetch (this.action et this.method étant spécifiés dans le fichier html)
+        fetch(this.action, {
+            method: this.method,
+            body: donneesFormulaire
+        })
+        // Convertit la réponse du serveur (de la requête précédente) en texte
+        .then(response => response.text())
+        // Exécute une fonction avec les données reçues du serveur
+        .then(data => {
+            // On redirige l'utilisateur vers la page de validation côté serveur
+            window.location.href = "validationServeur.php";
+        })
+        // Gestion des erreurs
+        .catch(erreur => console.error("Erreur : ", erreur));
     }
 })
 
