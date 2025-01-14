@@ -73,38 +73,40 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     
     // Redirection vers la validation côté serveur
     if (estValide) {
-        // Création de l'objet contenant les données du formulaire
-        const donneesFormulaire = {
-            nom: nom,
-            prenom: prenom,
-            email: email,
-            posteSouhaite: posteSouhaite,
-            numeroCandidat: numeroCandidat,
-            nombreProjets: nombreProjets,
-            lienLinkedin: lienLinkedin,
-            CV: CV.files[0]
-        };
+        // Création d'un formulaire caché pour envoyer les données
+        const formulaireCache = document.createElement('form');
+        formulaireCache.method = 'POST';
+        formulaireCache.action = 'validationServeur.php';
 
-        // DEBOGAGE
-        console.log(donneesFormulaire);
+        // Ajout des champs dans le formulaire caché
+        formulaireCache.appendChild(creerChampCache('nom', nom));
+        formulaireCache.appendChild(creerChampCache('prenom', prenom));
+        formulaireCache.appendChild(creerChampCache('email', email));
+        formulaireCache.appendChild(creerChampCache('posteSouhaite', posteSouhaite));
+        formulaireCache.appendChild(creerChampCache('numeroCandidat', numeroCandidat));
+        formulaireCache.appendChild(creerChampCache('nombreProjets', nombreProjets));
+        formulaireCache.appendChild(creerChampCache('lienLinkedin', lienLinkedin));
 
-        // Requête HTTP avec fetch (this.action et this.method étant spécifiés dans le fichier html)
-        fetch(this.action, {
-            method: this.method,
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(donneesFormulaire)
-        })
-        // Convertit la réponse du serveur (de la requête précédente) en texte
-        .then(response => response.text())
-        // Exécute une fonction avec les données reçues du serveur
-        .then(data => {
-            // On redirige l'utilisateur vers la page de validation côté serveur
-            window.location.href = "validationServeur.php";
-        })
-        // Gestion des erreurs
-        .catch(erreur => console.error("Erreur : ", erreur));
+        // Ajout du fichier CV
+        const champCacheCV = document.createElement('input');
+        champCacheCV.type = 'file';
+        champCacheCV.name = 'CV';
+        champCacheCV.files = CV.files;
+        formulaireCache.appendChild(champCacheCV);
+
+        // Ajout du formulaire caché dans la page et envoi des données
+        document.body.appendChild(formulaireCache);
+        formulaireCache.submit();
     }
 })
+
+function creerChampCache(nom, valeur) {
+    const champ = document.createElement('input');
+    champ.type = 'hidden';
+    champ.name = nom;
+    champ.value = valeur;
+    return champ;
+}
 
 function supprimerErreurs() {
     document.querySelectorAll(".text-danger").forEach(erreur => {
