@@ -73,13 +73,26 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     
     // Redirection vers la validation côté serveur
     if (estValide) {
-        // Récupération des données du formulaire (this = formulaire)
-        const donneesFormulaire = new FormData(this);
+        // Création de l'objet contenant les données du formulaire
+        const donneesFormulaire = {
+            nom: nom,
+            prenom: prenom,
+            email: email,
+            posteSouhaite: posteSouhaite,
+            numeroCandidat: numeroCandidat,
+            nombreProjets: nombreProjets,
+            lienLinkedin: lienLinkedin,
+            CV: CV.files[0]
+        };
+
+        // DEBOGAGE
+        console.log(donneesFormulaire);
 
         // Requête HTTP avec fetch (this.action et this.method étant spécifiés dans le fichier html)
         fetch(this.action, {
             method: this.method,
-            body: donneesFormulaire
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(donneesFormulaire)
         })
         // Convertit la réponse du serveur (de la requête précédente) en texte
         .then(response => response.text())
