@@ -45,7 +45,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     // Validation du numéro de candidat
     const regexNumCand = /^CAND-[0-9]{6}[A-Z]$/;
     if (!regexNumCand.test(numeroCandidat)) {
-        afficherErreur("erreurNumeroCand", "Veuillez entrer un numéro de candidat correct.");
+        afficherErreur("erreurNumeroCand", "Veuillez entrer un numéro de candidat correct.\nFormat : préfixe \"CAND-\" suivi de six chiffres et une lettre majuscule.\nExemples valides : CAND-123456A, CAND-987654Z");
         estValide = false;
     }
 
