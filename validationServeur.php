@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // VALIDATIONS
-    $estValide = true;
+    $estValide = false;
 
     // Validation du fichier du CV
     // Critères de validation
@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tailleOK = true;
         }
 
-        if (!$typeOK or !$tailleOK) {
-            $estValide = false;
+        if ($typeOK and $tailleOK) {
+            $estValide = true;
         }
     }
 
