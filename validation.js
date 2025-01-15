@@ -73,30 +73,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     
     // Redirection vers la validation côté serveur
     if (estValide) {
-        // Création d'un formulaire caché pour envoyer les données
-        const formulaireCache = document.createElement('form');
-        formulaireCache.method = 'POST';
-        formulaireCache.action = 'validationServeur.php';
-
-        // Ajout des champs dans le formulaire caché
-        formulaireCache.appendChild(creerChampCache('nom', nom));
-        formulaireCache.appendChild(creerChampCache('prenom', prenom));
-        formulaireCache.appendChild(creerChampCache('email', email));
-        formulaireCache.appendChild(creerChampCache('posteSouhaite', posteSouhaite));
-        formulaireCache.appendChild(creerChampCache('numeroCandidat', numeroCandidat));
-        formulaireCache.appendChild(creerChampCache('nombreProjets', nombreProjets));
-        formulaireCache.appendChild(creerChampCache('lienLinkedin', lienLinkedin));
-
-        // Ajout du fichier CV
-        const champCacheCV = document.createElement('input');
-        champCacheCV.type = 'file';
-        champCacheCV.name = 'CV';
-        champCacheCV.files = CV.files;
-        formulaireCache.appendChild(champCacheCV);
-
-        // Ajout du formulaire caché dans la page et envoi des données
-        document.body.appendChild(formulaireCache);
-        formulaireCache.submit();
+        document.getElementById("formulaireCandidat").submit();
     }
 })
 
