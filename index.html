@@ -8,66 +8,68 @@
     <title>Lukas DIZY TP3 (Alt) - S3.01</title>
 </head>
 <body class="bg-dark text-center text-white">
-    <form action="validationServeur.php" method="POST" enctype="multipart/form-data" id="formulaireCandidat" class="m-3">
-        <!-- Groupe nom/prénom -->
-        <div class="row">
-            <!-- Champ Nom -->
-            <div class="col-12 col-md-6 mb-3">
-                <input type="text" class="form-control" name="champNom" id="champNom" placeholder="Nom" required title="Uniquement des caractères alphabétiques, des espaces et des tirets, longueur comprise en 2 et 50 caractères.">
-                <span class="text-danger" id="erreurNom"></span>
+    <div class="border border-white border-opacity-25 rounded m-3">
+        <form action="validationServeur.php" method="POST" enctype="multipart/form-data" id="formulaireCandidat" class="m-3">
+            <!-- Groupe nom/prénom -->
+            <div class="row">
+                <!-- Champ Nom -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="text" class="form-control" name="champNom" id="champNom" placeholder="Nom" required title="Uniquement des caractères alphabétiques, des espaces et des tirets, longueur comprise en 2 et 50 caractères.">
+                    <span class="text-danger" id="erreurNom"></span>
+                </div>
+                <!-- Champ prénom -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="text" class="form-control" name="champPrenom" id="champPrenom" placeholder="Prénom" required title="Uniquement des caractères alphabétiques, des espaces et des tirets, longueur comprise en 2 et 50 caractères.">
+                    <span class="text-danger" id="erreurPrenom"></span>
+                </div>
             </div>
-            <!-- Champ prénom -->
-            <div class="col-12 col-md-6 mb-3">
-                <input type="text" class="form-control" name="champPrenom" id="champPrenom" placeholder="Prénom" required title="Uniquement des caractères alphabétiques, des espaces et des tirets, longueur comprise en 2 et 50 caractères.">
-                <span class="text-danger" id="erreurPrenom"></span>
+            <!-- Groupe email/lien linkedin -->
+            <div class="row">
+                <!-- Champ email -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="text" class="form-control" name="champEmail" id="champEmail" placeholder="Adresse mail" required title="Uniquement des adresses mail valides.">
+                    <span class="text-danger" id="erreurEmail"></span>
+                </div>
+                <!-- Champ lien linkedin -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="text" class="form-control" name="champLienLinkedin" id="champLienLinkedin" placeholder="Lien du profil LinkedIn" required title="Lien (URL) valide vers le profil LinkedIn du candidat.">
+                    <span class="text-danger" id="erreurLienLinkedin"></span>
+                </div>
             </div>
-        </div>
-        <!-- Groupe email/lien linkedin -->
-        <div class="row">
-            <!-- Champ email -->
-            <div class="col-12 col-md-6 mb-3">
-                <input type="text" class="form-control" name="champEmail" id="champEmail" placeholder="Adresse mail" required title="Uniquement des adresses mail valides.">
-                <span class="text-danger" id="erreurEmail"></span>
+            <!--Champ poste souhaité -->
+            <div class="input-group col-12 mb-3">
+                <label class="input-group-text" for="champPoste">Poste souhaité</label>
+                <select class="form-select" name="champPoste" id="champPoste" title="Sélectionnez un poste parmi la liste prédéfinie.">
+                    <option selected>Choisissez une option...</option>
+                    <option>Développeur Web</option>
+                    <option>Designer</option>
+                    <option>Chef de projet</option>
+                </select>
             </div>
-            <!-- Champ lien linkedin -->
-            <div class="col-12 col-md-6 mb-3">
-                <input type="text" class="form-control" name="champLienLinkedin" id="champLienLinkedin" placeholder="Lien du profil LinkedIn" required title="Lien (URL) valide vers le profil LinkedIn du candidat.">
-                <span class="text-danger" id="erreurLienLinkedin"></span>
+            <span class="text-danger" id="erreurPoste"></span>
+            <!-- Groupe numero candidat/nombre de projets -->
+            <div class="row">
+                <!-- Champ numéro candidat -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="text" class="form-control" name="champNumeroCand" id="champNumeroCand" placeholder="Numéro de candidat" required title="Numéro unique fourni par l'entreprise. Format : préfixe 'CAND-' suivi de six chiffres et une lettre majuscule. Exemples valides : CAND-123456A, CAND-987654Z.">
+                    <span class="text-danger" id="erreurNumeroCand"></span>
+                </div>
+                <!-- Champ nombre de projets -->
+                <div class="col-12 col-md-6 mb-3">
+                    <input type="number" class="form-control" name="champProjets" id="champProjets" min="0" max="40" placeholder="Nombre de projets réalisés" required title="Nombre de projets significatifs (professionnels ou académiques), entre 0 et 40.">
+                    <span class="text-danger" id="erreurNombreProjets"></span>
+                </div>
             </div>
-        </div>
-        <!--Champ poste souhaité -->
-        <div class="input-group col-12 mb-3">
-            <label class="input-group-text" for="champPoste">Poste souhaité</label>
-            <select class="form-select" name="champPoste" id="champPoste" title="Sélectionnez un poste parmi la liste prédéfinie.">
-                <option selected>Choisissez une option...</option>
-                <option>Développeur Web</option>
-                <option>Designer</option>
-                <option>Chef de projet</option>
-            </select>
-        </div>
-        <span class="text-danger" id="erreurPoste"></span>
-        <!-- Groupe numero candidat/nombre de projets -->
-        <div class="row">
-            <!-- Champ numéro candidat -->
-            <div class="col-12 col-md-6 mb-3">
-                <input type="text" class="form-control" name="champNumeroCand" id="champNumeroCand" placeholder="Numéro de candidat" required title="Numéro unique fourni par l'entreprise. Format : préfixe 'CAND-' suivi de six chiffres et une lettre majuscule. Exemples valides : CAND-123456A, CAND-987654Z.">
-                <span class="text-danger" id="erreurNumeroCand"></span>
+            <!-- Champ CV -->
+            <div class="input-group col-12 mb-3">
+                <label class="input-group-text" for="champCV">CV</label>
+                <input type="file" class="form-control" name="champCV" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required title="Fichier PDF ou DOCX uniquement, taille maximale de 5 Mo.">
             </div>
-            <!-- Champ nombre de projets -->
-            <div class="col-12 col-md-6 mb-3">
-                <input type="number" class="form-control" name="champProjets" id="champProjets" min="0" max="40" placeholder="Nombre de projets réalisés" required title="Nombre de projets significatifs (professionnels ou académiques), entre 0 et 40.">
-                <span class="text-danger" id="erreurNombreProjets"></span>
-            </div>
-        </div>
-        <!-- Champ CV -->
-        <div class="input-group col-12 mb-3">
-            <label class="input-group-text" for="champCV">CV</label>
-            <input type="file" class="form-control" name="champCV" id="champCV" aria-describedby="aideChampCV" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" placeholder="CV" required title="Fichier PDF ou DOCX uniquement, taille maximale de 5 Mo.">
-        </div>
-        <span class="text-danger" id="erreurCV"></span>
-        <!-- Bouton validation -->
-        <button type="submit" class="btn btn-light mt-4">Envoyer</button>
-    </form>
+            <span class="text-danger" id="erreurCV"></span>
+            <!-- Bouton validation -->
+            <button type="submit" class="btn btn-light mt-4">Envoyer</button>
+        </form>
+    </div>
 
     <script src="validation.js"></script>
 
