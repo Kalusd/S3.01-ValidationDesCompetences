@@ -56,7 +56,7 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     }
 
     // Validation du lien LinkedIn
-    const regexLinkedIn = /^(https:\/\/)?www\.linkedin\.com\/in\/[A-Za-z0-9\-\_\.]+[\/]?$/;
+    const regexLinkedIn = /^(https:\/\/)?(www\.)?(fr\.)?linkedin\.com\/in\/[A-Za-z0-9\-\_\.]+[\/]?$/;
     if (!regexLinkedIn.test(lienLinkedin)) {
         afficherErreur("erreurLienLinkedin", "Le lien vers le profil LinkedIn est invalide.");
         estValide = false;
