@@ -77,14 +77,6 @@ document.getElementById("formulaireCandidat").addEventListener("submit", functio
     }
 })
 
-function creerChampCache(nom, valeur) {
-    const champ = document.createElement('input');
-    champ.type = 'hidden';
-    champ.name = nom;
-    champ.value = valeur;
-    return champ;
-}
-
 function supprimerErreurs() {
     document.querySelectorAll(".text-danger").forEach(erreur => {
         erreur.style.display = "none";
